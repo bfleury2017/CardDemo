@@ -1,5 +1,6 @@
 package com.nhti.carddemo;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,6 +59,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             itemImage = (ImageView)itemView.findViewById(R.id.item_image);
             itemTitle = (TextView) itemView.findViewById(R.id.item_title);
             itemDetail = (TextView) itemView.findViewById(R.id.item_detail);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    Snackbar.make(v, "Detected at " + position, Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+                }
+            });
         }
     }
 }
